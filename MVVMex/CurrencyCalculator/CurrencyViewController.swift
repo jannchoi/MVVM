@@ -58,6 +58,9 @@ class CurrencyViewController: UIViewController {
         viewModel.outputText.bind { text in
             self.resultLabel.text = text
         }
+        viewModel.currentRateText.bind { text in
+            self.exchangeRateLabel.text = text
+        }
     }
      
     private func setupUI() {
@@ -94,6 +97,10 @@ class CurrencyViewController: UIViewController {
     
     private func setupActions() {
         convertButton.addTarget(self, action: #selector(convertButtonTapped), for: .touchUpInside)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Word", style: .plain, target: self, action: #selector(goToWordConterView))
+    }
+    @objc private func goToWordConterView() {
+        navigationController?.pushViewController(WordCounterViewController(), animated: true)
     }
      
     @objc private func convertButtonTapped() {

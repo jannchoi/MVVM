@@ -35,6 +35,8 @@ class WordCounterViewController: UIViewController {
         setupConstraints()
         setupTextView()
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Person", style: .plain, target: self, action: #selector(goToPersonView))
+        
         // 카운팅 결과가 바뀔 때마다 레이블 업데이트
         viewModel.outputText.bind { value in
             self.countLabel.text = value
@@ -42,7 +44,10 @@ class WordCounterViewController: UIViewController {
     }
     
     let viewModel = WordCounterViewModel()
-     
+    
+    @objc private func goToPersonView() {
+        navigationController?.pushViewController(PersonListViewController(), animated: true)
+    }
     private func setupUI() {
         view.backgroundColor = .white
         
