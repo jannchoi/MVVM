@@ -35,6 +35,7 @@ class WordCounterViewController: UIViewController {
         setupConstraints()
         setupTextView()
         
+        // 카운팅 결과가 바뀔 때마다 레이블 업데이트
         viewModel.outputText.bind { value in
             self.countLabel.text = value
         }

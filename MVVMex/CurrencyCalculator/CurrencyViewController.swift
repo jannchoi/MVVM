@@ -54,6 +54,7 @@ class CurrencyViewController: UIViewController {
         setupConstraints()
         setupActions()
         
+        //결과가 나올 때마다 텍스트 업데이트
         viewModel.outputText.bind { text in
             self.resultLabel.text = text
         }
@@ -96,7 +97,6 @@ class CurrencyViewController: UIViewController {
     }
      
     @objc private func convertButtonTapped() {
-        
         viewModel.inputAmount.value = amountTextField.text
       }
 }

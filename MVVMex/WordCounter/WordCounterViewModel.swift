@@ -12,6 +12,7 @@ class WordCounterViewModel {
     let inputText: Observable<String?> = Observable(nil)
     let outputText = Observable("")
     init() {
+        //입력값이 변할 때마다 카운팅
         inputText.bind { text in
             self.countText()
         }

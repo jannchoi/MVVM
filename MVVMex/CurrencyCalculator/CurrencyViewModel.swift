@@ -13,6 +13,7 @@ class CurrencyViewModel {
     let outputText = Observable("")
     
     init() {
+        //inputAmount가 변할 때마다 계산
         inputAmount.bind { value in
             self.convertCurrency()
         }
