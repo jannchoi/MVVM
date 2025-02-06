@@ -54,6 +54,8 @@ class CurrencyViewController: UIViewController {
         setupConstraints()
         setupActions()
         
+        viewModel.inputRateTrigger.value = ()
+        
         //결과가 나올 때마다 텍스트 업데이트
         viewModel.outputText.bind { text in
             self.resultLabel.text = text
@@ -61,6 +63,7 @@ class CurrencyViewController: UIViewController {
         viewModel.currentRateText.bind { text in
             self.exchangeRateLabel.text = text
         }
+
     }
      
     private func setupUI() {
